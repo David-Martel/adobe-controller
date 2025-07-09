@@ -1,0 +1,73 @@
+{
+  "project": {
+    "name": "adobe-controller",
+    "type": "unknown",
+    "framework": "unknown",
+    "path": "/mnt/t/projects/mcp_servers/adobe-controller",
+    "lastAnalyzed": "2025-07-08T20:12:16Z",
+    "analyzedBy": "claude-code-hook-Edit",
+    "sessionId": "66c08c6d-66f8-4ecf-ae6d-640f880048e4"
+  },
+  "structure": {
+    "totalFiles": {
+      "javascript": 21,
+      "typescript": 0,
+      "python": 15,
+      "rust": 0,
+      "markdown": 3
+    },
+    "keyFiles": [
+            ".claude/project-analysis.md",
+      ".claude/project-context.json",
+      ".mypy_cache/3.13/@plugins_snapshot.json",
+      ".mypy_cache/3.13/abc.data.json",
+      ".mypy_cache/3.13/abc.meta.json",
+      ".mypy_cache/3.13/annotated_types/__init__.data.json",
+      ".mypy_cache/3.13/annotated_types/__init__.meta.json",
+      ".mypy_cache/3.13/anyio/_core/_eventloop.data.json",
+      ".mypy_cache/3.13/anyio/_core/_eventloop.meta.json",
+      ".mypy_cache/3.13/anyio/_core/_exceptions.data.json",
+      ".mypy_cache/3.13/anyio/_core/_exceptions.meta.json",
+      ".mypy_cache/3.13/anyio/_core/_fileio.data.json",
+      ".mypy_cache/3.13/anyio/_core/_fileio.meta.json",
+      ".mypy_cache/3.13/anyio/_core/_resources.data.json",
+      ".mypy_cache/3.13/anyio/_core/_resources.meta.json",
+      ".mypy_cache/3.13/anyio/_core/_signals.data.json",
+      ".mypy_cache/3.13/anyio/abc/__init__.data.json",
+      ".mypy_cache/3.13/anyio/abc/__init__.meta.json",
+      ".mypy_cache/3.13/anyio/abc/_eventloop.data.json",
+      ".mypy_cache/3.13/anyio/abc/_eventloop.meta.json"
+    ]
+  },
+  "git": {
+    "branch": "",
+    "hasChanges": false,
+    "changedFiles": [
+            ""
+    ],
+    "recentCommits": [
+            ""
+    ]
+  },
+  "dependencies": {
+    "production": [],
+    "development": [],
+    "scripts": []
+  },
+  "mcp": {
+    "servers": [
+      "github-wsl",
+      "memory-wsl",
+      "filesystem-wsl",
+      "desktop-commander-wsl",
+      "sequential-thinking-wsl",
+      "fetch-wsl"
+    ],
+    "githubIntelligence": {},
+    "contextBuildTime": "2025-07-08T20:12:16Z",
+    "claudeCodeIntegration": 1
+  },
+    "contextStrategy": "intelligent",
+    "preferredModel": "claude-sonnet-4-20250514"
+  }
+}
