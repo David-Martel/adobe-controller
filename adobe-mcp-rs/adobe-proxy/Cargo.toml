@@ -1,0 +1,42 @@
+[package]
+name = "adobe-proxy"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Unified WebSocket proxy server for Adobe MCP applications"
+
+[[bin]]
+name = "adobe-proxy"
+path = "src/main.rs"
+
+[dependencies]
+adobe-common = { path = "../adobe-common" }
+
+# Async
+tokio = { workspace = true }
+futures-util = { workspace = true }
+
+# WebSocket
+tokio-tungstenite = { workspace = true }
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# CLI
+clap = { workspace = true }
+
+# Utilities
+uuid = { workspace = true }
+dashmap = { workspace = true }

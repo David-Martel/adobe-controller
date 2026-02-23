@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "adobe-proxy": {
+      "command": "T:\\projects\\mcp_servers\\adobe-controller\\adobe-mcp-rs\\target\\debug\\adobe-proxy.exe",
+      "args": ["--host", "127.0.0.1", "--port", "3001"],
+      "env": {
+        "RUST_LOG": "info"
+      },
+      "description": "Rust proxy server for Adobe UXP plugins"
+    },
+    "adobe-acrobat": {
+      "command": "T:\\projects\\mcp_servers\\adobe-controller\\adobe-mcp-rs\\target\\debug\\acrobat-mcp.exe",
+      "args": ["--proxy-url", "ws://127.0.0.1:3001", "--timeout", "30000"],
+      "env": {
+        "ACROBAT_PROXY_URL": "ws://127.0.0.1:3001",
+        "ACROBAT_TIMEOUT": "30000",
+        "RUST_LOG": "info"
+      },
+      "description": "Adobe Acrobat MCP (Rust)"
+    },
+    "adobe-photoshop": {
+      "command": "adobe-photoshop",
+      "env": {
+        "ADOBE_MCP_PROXY_URL": "http://localhost:3001"
+      },
+      "description": "Adobe Photoshop MCP (Python)"
+    },
+    "adobe-premiere": {
+      "command": "adobe-premiere",
+      "env": {
+        "ADOBE_MCP_PROXY_URL": "http://localhost:3001"
+      },
+      "description": "Adobe Premiere MCP (Python)"
+    },
+    "adobe-illustrator": {
+      "command": "adobe-illustrator",
+      "env": {
+        "ADOBE_MCP_PROXY_URL": "http://localhost:3001"
+      },
+      "description": "Adobe Illustrator MCP (Python)"
+    },
+    "adobe-indesign": {
+      "command": "adobe-indesign",
+      "env": {
+        "ADOBE_MCP_PROXY_URL": "http://localhost:3001"
+      },
+      "description": "Adobe InDesign MCP (Python)"
+    }
+  }
+}

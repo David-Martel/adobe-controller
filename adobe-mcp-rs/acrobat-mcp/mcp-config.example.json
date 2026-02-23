@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "acrobat": {
+      "command": "T:/RustCache/cargo-target/release/acrobat-mcp.exe",
+      "args": [
+        "--proxy-url",
+        "ws://localhost:3001",
+        "--timeout",
+        "30000"
+      ],
+      "env": {
+        "RUST_LOG": "info"
+      },
+      "description": "Adobe Acrobat PDF automation via MCP",
+      "disabled": false
+    }
+  }
+}

@@ -1,0 +1,43 @@
+[package]
+name = "acrobat-mcp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "MCP server for Adobe Acrobat automation"
+
+[[bin]]
+name = "acrobat-mcp"
+path = "src/main.rs"
+
+[dependencies]
+adobe-common = { path = "../adobe-common" }
+
+# Async
+tokio = { workspace = true }
+futures-util = { workspace = true }
+
+# WebSocket client
+tokio-tungstenite = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# CLI
+clap = { workspace = true }
+
+# MCP Protocol
+jsonrpc-core = { workspace = true }
+
+# Utilities
+uuid = { workspace = true }
+chrono = { workspace = true }
+async-trait = { workspace = true }

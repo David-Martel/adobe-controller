@@ -1,0 +1,46 @@
+[package]
+name = "acrobat-bridge"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Native Acrobat plugin for MCP bridge (WebSocket + Acrobat SDK FFI)"
+
+[lib]
+name = "acrobat_bridge"
+crate-type = ["cdylib"]
+
+[features]
+default = []
+acrobat-sdk = []  # Enable when linking against Acrobat SDK
+
+[dependencies]
+adobe-common = { path = "../adobe-common" }
+
+# Async runtime
+tokio = { version = "1.0", features = ["rt", "rt-multi-thread", "sync", "time", "macros"] }
+futures-util = { workspace = true }
+
+# WebSocket
+tokio-tungstenite = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }
+
+# Logging (lightweight)
+tracing = { workspace = true }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# FFI
+libc = { workspace = true }
+
+# Thread-safe state
+once_cell = "1.19"
+parking_lot = "0.12"
+
+[build-dependencies]
+cc = "1.0"
+bindgen = "0.70"

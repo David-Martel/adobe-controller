@@ -1,0 +1,45 @@
+name: rust-ci
+
+on:
+  push:
+    paths:
+      - "adobe-mcp-rs/**"
+      - ".github/workflows/rust-ci.yml"
+  pull_request:
+    paths:
+      - "adobe-mcp-rs/**"
+      - ".github/workflows/rust-ci.yml"
+
+jobs:
+  rust:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: adobe-mcp-rs
+    env:
+      RUSTC_WRAPPER: sccache
+      SCCACHE_GHA_ENABLED: "true"
+      CARGO_TARGET_DIR: T:\RustCache\cargo-target
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mozilla-actions/sccache-action@v0.0.6
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Rust cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            T:\RustCache\cargo-target
+          key: rust-target-${{ runner.os }}-${{ hashFiles('adobe-mcp-rs/Cargo.lock') }}
+          restore-keys: |
+            rust-target-${{ runner.os }}-
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Lint
+        run: cargo clippy --workspace -- -D warnings
+      - name: Test
+        run: cargo test --workspace
+      - name: Build
+        run: cargo build --workspace
