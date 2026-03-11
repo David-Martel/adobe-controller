@@ -266,7 +266,7 @@ mod tests {
     #[test]
     fn test_tool_definitions() {
         let tools = get_tool_definitions();
-        assert!(tools.len() > 0);
+        assert!(!tools.is_empty());
         
         for tool in tools {
             assert!(tool.get("name").is_some());

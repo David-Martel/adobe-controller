@@ -192,7 +192,7 @@ fn test_command_with_all_option_types() {
         json!({
             "string_opt": "hello",
             "number_opt": 42,
-            "float_opt": 3.14,
+            "float_opt": 3.15,
             "bool_opt": true,
             "null_opt": null,
             "array_opt": [1, 2, 3],

@@ -354,9 +354,9 @@ mod tests {
 
     #[test]
     fn test_plugin_constants() {
-        assert!(ACROBAT_SDK_VERSION > 0);
-        assert!(HANDSHAKE_VERSION > 0);
-        assert!(PLUGIN_VERSION > 0);
+        const { assert!(ACROBAT_SDK_VERSION > 0) };
+        const { assert!(HANDSHAKE_VERSION > 0) };
+        const { assert!(PLUGIN_VERSION > 0) };
     }
 
     #[test]

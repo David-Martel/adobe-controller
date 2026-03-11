@@ -872,7 +872,7 @@ fn normalize_page_numbers(value: &Value) -> Result<Vec<i64>> {
         return Err(anyhow::anyhow!("At least one page number required"));
     }
 
-    let treat_as_one_based = !page_nums.iter().any(|n| *n == 0);
+    let treat_as_one_based = !page_nums.contains(&0);
     if treat_as_one_based {
         page_nums = page_nums
             .into_iter()
@@ -936,7 +936,7 @@ fn normalize_page_ranges(value: &Value) -> Result<Vec<Value>> {
             if range_array.is_empty() {
                 continue;
             }
-            let start = range_array.get(0).and_then(|v| v.as_i64()).unwrap_or(0);
+            let start = range_array.first().and_then(|v| v.as_i64()).unwrap_or(0);
             let end = range_array
                 .get(1)
                 .and_then(|v| v.as_i64())

@@ -403,10 +403,9 @@ async fn handle_event(
                                 state.auto_launch_timeout,
                             )
                             .await
+                                && state.send_to_application(&packet_with_sender)
                             {
-                                if state.send_to_application(&packet_with_sender) {
-                                    return;
-                                }
+                                return;
                             }
 
                             auto_launch_note = Some(format!(
@@ -501,11 +500,10 @@ fn try_launch_application(application: &str) -> bool {
     };
 
     for exe in candidates {
-        if std::path::Path::new(exe).exists() {
-            if Command::new(exe).spawn().is_ok() {
-                info!("Auto-launched {} via {}", application, exe);
-                return true;
-            }
+        if std::path::Path::new(exe).exists()
+            && Command::new(exe).spawn().is_ok() {
+            info!("Auto-launched {} via {}", application, exe);
+            return true;
         }
     }
 
