@@ -6,12 +6,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Adobe MCP is a unified Model Context Protocol server that enables AI-powered automation of Adobe Creative Suite applications (Photoshop, Premiere Pro, Illustrator, and InDesign). It uses a 3-tier architecture with Python MCP servers, a Node.js WebSocket proxy, and JavaScript UXP plugins.
 
+## Environment Setup
+
+The Python MCP servers require a `.env` file in the `adobe-mcp-unified/` directory (or environment variables set externally). Required variables:
+
+```bash
+# .env (minimum required)
+ADOBE_PROXY_HOST=localhost       # WebSocket proxy host
+ADOBE_PROXY_PORT=3001            # WebSocket proxy port
+# ADOBE_LOG_LEVEL=INFO           # Optional: DEBUG, INFO, WARNING, ERROR
+# ADOBE_TIMEOUT=20               # Optional: command timeout in seconds
+```
+
 ## Development Commands
 
 ### Installation and Setup
 ```bash
 # Install Python dependencies (from adobe-mcp-unified/ directory)
-pip install -e .
+uv pip install -e .
 
 # Install proxy server dependencies
 cd proxy-server
@@ -44,13 +56,13 @@ adobe-indesign
 ./run-tests.ps1 -Manual
 
 # Run specific test file
-python -m pytest tests/test_illustrator.py -v -s
+uv run pytest tests/test_illustrator.py -v -s
 ```
 
 ### Development Dependencies
 ```bash
 # Install dev dependencies
-pip install -e ".[dev]"
+uv pip install -e ".[dev]"
 
 # Format code
 black adobe_mcp/
