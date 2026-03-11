@@ -13,7 +13,7 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 authors = ["David T. Martel <davidmartel07@gmail.com>"]
-repository = "https://github.com/david-t-martel/adobe-mcp"
+repository = "https://github.com/David-Martel/adobe-mcp"
 
 [workspace.dependencies]
 # Async Runtime - using versions from sccache

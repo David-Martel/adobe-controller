@@ -1,0 +1,23 @@
+# CargoTools-compliant configuration for adobe-mcp-rs
+# Uses T:\RustCache for shared target dir and sccache
+# Inherits most settings from ~/.cargo/config.toml (global)
+
+[build]
+# Centralized target directory on fast drive (shared across all workspaces)
+target-dir = "T:\\RustCache\\cargo-target"
+# Use sccache for compilation caching
+rustc-wrapper = "sccache"
+
+[env]
+# sccache must have CARGO_INCREMENTAL=0 (they are incompatible)
+CARGO_INCREMENTAL = "0"
+SCCACHE_DIR = "T:/RustCache/sccache"
+SCCACHE_CACHE_SIZE = "30G"
+SCCACHE_CACHE_COMPRESSION = "zstd"
+
+[registries.crates-io]
+protocol = "sparse"
+
+[target.x86_64-pc-windows-msvc]
+linker = "lld-link"
+rustflags = ["-C", "link-arg=/DEBUG:FASTLINK"]

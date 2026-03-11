@@ -1,0 +1,3 @@
+[submodule "adobe-mcp-unified"]
+	path = adobe-mcp-unified
+	url = https://github.com/David-Martel/adobe-mcp.git
